@@ -5,8 +5,9 @@ module.exports = (sequelize) => {
     "Activity",
     {
       id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         primaryKey: true,
+        autoicrement: true,
       },
       name: {
         type: DataTypes.STRING,
@@ -24,8 +25,8 @@ module.exports = (sequelize) => {
         type: DataTypes.TIME,
         allowNull: false,
       },
-      Season: {
-        type: DataTypes.ENUM("summer", "winter", "autumn", "spring"),
+      season: {
+        type: DataTypes.STRING,
         allowNull: false,
       },
     },
