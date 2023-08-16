@@ -8,10 +8,9 @@ const getAllCountries = async (req, res) => {
     const countries = await getAllCount();
     if(!name) return res.status(200).json(countries)
 
-    const otroName = name.charAt(0).toUpperCase()+ name.slice(1).toLowerCase();
-    const country = await getByName(otroName);
+    const country = await getByName(name);
 
-    country ? res.status(200).json(country) : res.status(200).json(countries)
+    country ? res.status(200).json(country) : res.status(500).json(`${name} no esta en la base de datos`)
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
