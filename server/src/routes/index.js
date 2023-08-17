@@ -9,8 +9,12 @@ const getCountryId = require('../middleware/getCountryId')
 // Middlewares de Activity
 const getActivities = require('../middleware/getActivities')
 const postActivities = require('../middleware/postActivities')
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Middlewares de User
+const getUser = require('../middleware/getUser')
+const postUser = require('../middleware/postUser')
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 const router = Router();
 
@@ -22,5 +26,8 @@ router.get('/countries/:id', getCountryId)
 
 router.post('/activities', postActivities)
 router.get('/activities', getActivities)
+
+router.get('/user', getUser)
+router.post('/user', postUser)
 
 module.exports = router;
