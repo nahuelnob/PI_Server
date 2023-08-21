@@ -9,6 +9,7 @@ const getCountry = async () => {
     const {
       fifa,
       cca3,
+      name, 
       translations,
       flags,
       continents,

@@ -6,8 +6,8 @@ module.exports = (sequelize) => {
     {
       id: {
         type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
-        autoicrement: true,
       },
       name: {
         type: DataTypes.STRING,
@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
         },
       },
       duration: {
-        type: DataTypes.TIME,
+        type: DataTypes.TIME(0),
         allowNull: false,
       },
       season: {
