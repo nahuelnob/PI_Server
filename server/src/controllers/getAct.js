@@ -1,7 +1,13 @@
-const { Activity } = require("../db");
+const { Activity , Country} = require("../db");
 
 const getAct = async () => {
-  const act = await Activity.findAll();
+  const act = await Activity.findAll({include: {
+        model: Country,
+        attributes: ['name'],
+        through: {
+            attributes: []
+        }
+    }});
   return act;
 };
 
