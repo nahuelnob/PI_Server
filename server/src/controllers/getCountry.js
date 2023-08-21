@@ -9,7 +9,7 @@ const getCountry = async () => {
     const {
       fifa,
       cca3,
-      name,
+      translations,
       flags,
       continents,
       capital,
@@ -23,7 +23,7 @@ const getCountry = async () => {
 
     return {
       id: fifa || cca3,
-      name: name.common,
+      name: translations.spa.common,
       flags: flags.png,
       continent: formattedContinent,
       capital: formattedCapital,

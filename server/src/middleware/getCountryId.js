@@ -2,12 +2,12 @@ const getById = require("../controllers/getById");
 
 const getCountryid = async (req, res) => {
   const { id } = req.params;
-  const idMay = id.toUpperCase()
+  const idUpp = id.toUpperCase()
 try {
-    coso = await getById(idMay)
-    res.status(200).json(coso)
+    countryById = await getById(idUpp)
+    res.status(200).json(countryById)
 } catch (error) {
-    res.status(500).json('nob')
+    res.status(500).json({error: error.message})
     
 }
 };
