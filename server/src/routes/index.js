@@ -12,7 +12,8 @@ const postActivities = require('../middleware/postActivities')
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Middlewares de User
 const getUser = require('../middleware/getUser')
-const postUser = require('../middleware/postUser')
+const postUser = require('../middleware/postUser');
+const getAllUser = require("../middleware/getAllUser");
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -28,6 +29,7 @@ router.post('/activities', postActivities)
 router.get('/activities', getActivities)
 
 router.get('/user', getUser)
+router.get('/user/all', getAllUser)
 router.post('/user', postUser)
 
 module.exports = router;
