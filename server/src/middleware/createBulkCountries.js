@@ -7,7 +7,7 @@ const createBulkCountries = async (req, res) => {
         await bulkCountries(countries)
         res.status(200).json({response : 'Created'})
     } catch (error) {
-        //res.status(500).json({error: error.message})
+        // res.status(500).json({error: error.message})
     }
 }
 
