@@ -12,5 +12,5 @@ conn
     });
   })
   // .then(() => axios(`http://localhost:3001/countries/bulk`))
-  .then(() => createBulkCountries())
+  // .then(() => createBulkCountries())
   .catch((error) => console.error(error));
