@@ -5,7 +5,7 @@ const getUser = async (req, res) => {
     const { email, password } = req.query;
     const user = await getUs(email, password);
     user
-      ? res.status(200).json({ access: true })
+      ? res.status(200).json({ access: true, email, password })
       : res
           .status(404)
           .json({ error: "El usuario o la contraseña son incorrectos" });

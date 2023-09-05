@@ -11,6 +11,4 @@ conn
       console.log(`Server listening on port ${PORT}`);
     });
   })
-  // .then(() => axios(`http://localhost:3001/countries/bulk`))
-  // .then(() => createBulkCountries())
   .catch((error) => console.error(error));
