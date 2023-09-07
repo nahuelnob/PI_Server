@@ -9,6 +9,7 @@ const getCountryId = require('../middleware/getCountryId')
 // Middlewares de Activity
 const getActivities = require('../middleware/getActivities')
 const postActivities = require('../middleware/postActivities')
+const deleteActivities = require("../middleware/deleteActivities")
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Middlewares de User
 const getUser = require('../middleware/getUser')
@@ -27,6 +28,7 @@ router.get('/countries/:id', getCountryId)
 
 router.post('/activities', postActivities)
 router.get('/activities', getActivities)
+router.delete('/activities/:id', deleteActivities)
 
 router.get('/user', getUser)
 router.get('/user/all', getAllUser)

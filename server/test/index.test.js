@@ -38,24 +38,57 @@ describe("Test de rutas", () => {
       const { body } = await agent.get(`/countries?name=arg`);
       expect(body).toBeInstanceOf(Array);
     });
-    it("Es array?", async () => {
+    it("La request me debe devolver un array", async () => {
       const { body } = await agent.get(`/countries?name=argentina`);
       expect(body[0].capital).toBe("Buenos Aires");
+    });
+    it("La request debe traer 2 elementos", async () => {
+      const { body } = await agent.get(`/countries?name=arg`);
+      expect(body).toHaveLength(2);
+    });
+    it("La request debe traer 4 elementos", async () => {
+      const { body } = await agent.get(`/countries?name=sur`);
+      expect(body).toHaveLength(4);
+    });
+    it("La request debe traer todos los elementos si no le paso nombre", async () => {
+      const { body } = await agent.get(`/countries?name=`);
+      expect(body).toHaveLength(250);
     });
   });
 
   describe("POST /activities", () => {
     const act_01 = {
-      name: "Coloso Marcelo Bielsa",
+      id : 3001, 
+      name: 'Actividad X',
       difficulty: 5,
       duration: "01:30",
-      season: "spring",
+      season: "Primavera",
       country: "ARG",
     };
 
-    it("Corroborar que la propiedad name enviada es la correcta", async () => {
+    it("Corroborar que la Actividad se cree correctamente", async () => {
       const { body } = await agent.post("/activities").send(act_01);
-      expect(body.name).toBe("Coloso Marcelo Bielsa");
+      expect(body).toHaveProperty("id");
+      expect(body).toHaveProperty("name");
+      expect(body).toHaveProperty("difficulty");
+      expect(body).toHaveProperty("duration");
+      expect(body).toHaveProperty("season");
+      expect(body.name).toBe("Actividad X");
+      expect(body.season).toBe("Primavera");
+      await agent.delete("/activities/3001")
+    });
+
+    const act_02 = {
+      id : 3002, 
+      difficulty: 5,
+      duration: "01:30",
+      season: "Primavera",
+      country: "ARG",
+    };
+    it("Si faltan datos debe devolver un error", async () => {
+      const response = await agent.post("/activities").send(act_02);
+      expect(response.statusCode).toBe(500);
+      expect(response.body).toEqual({ error: "Faltan datos" });
     });
   });
 });
