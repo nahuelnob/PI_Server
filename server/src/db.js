@@ -4,10 +4,16 @@ const { Sequelize } = require("sequelize");
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, PORT, BDD
+  DB_USER, DB_PASSWORD, DB_HOST, PORT, BDD, DB_DEPLOY
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
+//! Asi estaba antes de deployar
+/* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
+  logging: false, 
+  native: false, 
+}); */
+//* Despues de deployar ---> tambien cambie en packjson el nodemon x node
+const sequelize = new Sequelize(DB_DEPLOY, {
   logging: false, 
   native: false, 
 });
