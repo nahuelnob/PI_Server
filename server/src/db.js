@@ -8,15 +8,15 @@ const {
 } = process.env;
 
 //! Asi estaba antes de deployar
-/* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
-  logging: false, 
-  native: false, 
-}); */
-//* Despues de deployar ---> tambien cambie en packjson el nodemon x node
-const sequelize = new Sequelize(DB_DEPLOY, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
   logging: false, 
   native: false, 
 });
+// //* Despues de deployar ---> tambien cambie en packjson el nodemon x node
+// const sequelize = new Sequelize(DB_DEPLOY, {
+//   logging: false, 
+//   native: false, 
+// });
 
 
 const basename = path.basename(__filename);
